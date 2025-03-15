@@ -30,7 +30,7 @@ The application provides access to the following registry keys:
 
 - Windows 10 or Windows 11
 - .NET 8.0 or higher
-- Administrator privileges (required for some settings)
+- Administrator privileges (required for registry modifications)
 
 ## Installation
 
@@ -47,15 +47,26 @@ The application provides access to the following registry keys:
 
 2. Open the solution in Visual Studio 2022 or later
 
-3. Build the solution
+3. Build the solution using one of these methods:
+   
+   **Using Visual Studio:**
+   - Right-click on the project and select "Build"
+   - Or press Ctrl+Shift+B
+
+   **Using Command Line:**
    ```
+   dotnet restore
    dotnet build
    ```
 
-4. Run the application
+4. To create a release build:
    ```
-   dotnet run
+   dotnet publish -c Release -r win-x64 --self-contained false
    ```
+
+5. The compiled application will be in the `bin\Debug\net8.0-windows` or `bin\Release\net8.0-windows` directory
+
+For more detailed build instructions, see the [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md) file.
 
 ## Contributing
 
