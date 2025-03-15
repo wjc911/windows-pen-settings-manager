@@ -1,84 +1,77 @@
 # Windows Pen Settings Manager
 
-A lightweight GUI tool for managing Windows pen settings through the registry.
+A powerful tool for managing Windows pen settings through the registry, providing enhanced control over your Windows pen experience. This application makes it easy to configure pen settings that are normally difficult to access.
+
+![Windows Pen Settings Manager Screenshot](screenshot.png)
 
 ## Features
 
-- Adjust pen pressure sensitivity
-- Customize latency settings for improved responsiveness
-- Configure double-tap settings
-- Enable/disable touch rejection when using pen
-- Hide/show pen cursor for cleaner drawing experience
-- Configure touch prediction for optimal responsiveness
-- Customize right-click zone dimensions
-- Enable/disable pen gestures (flicks, hold, eraser)
-- Reset all settings to default values
-- Changes take effect immediately
+- **Complete pen settings management** from multiple registry locations
+- **User-friendly interface** with sliders and checkboxes for easy configuration
+- **Pressure sensitivity adjustment** to customize how the pen responds to pressure
+- **Latency settings** to reduce input lag for a more responsive experience
+- **Double-tap configuration** for precise control over double-tap behavior
+- **Right-click settings** including pen button configuration and hold gestures
+- **Immediate feedback** - changes are applied instantly
+- **Advanced settings** for full control of the pen experience
+
+## Registry Settings Managed
+
+The application provides access to the following registry keys:
+
+- `HKEY_CURRENT_USER\Software\Microsoft\Wisp\Pen`
+- `HKEY_CURRENT_USER\Software\Microsoft\Wisp\Pen\SysEventParameters`
+- `HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Windows\Pen`
+- `HKEY_CURRENT_USER\Control Panel\Cursors`
+- `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\TouchPrediction`
+- `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad`
 
 ## Requirements
 
-- Windows 10 or later
-- .NET 8.0 or later
-- Administrator privileges (required to modify some registry settings)
+- Windows 10 or Windows 11
+- .NET 8.0 or higher
+- Administrator privileges (required for some settings)
 
 ## Installation
 
-1. Download the latest release from the Releases section
-2. Extract the zip file to a location of your choice
+1. Download the latest release from the [Releases](https://github.com/yourusername/windows-pen-settings-manager/releases) page
+2. Extract the ZIP file to any location
 3. Run `PenSettingsManager.exe` as administrator
-
-Note: Administrator privileges are required to modify certain system-level registry settings like touch prediction.
-
-## Settings
-
-This application manages settings from the following registry locations:
-
-- `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Wisp\Pen` - Contains various pen settings
-- `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Wisp\Pen\SysEventParameters` - Contains pen gesture settings
-- `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\Pen` - Contains settings for touch rejection
-- `HKEY_CURRENT_USER\Control Panel\Cursors` - Contains pen visualization settings
-- `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\TouchPrediction` - Contains touch prediction settings (requires admin rights)
-- `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad` - Contains right-click zone settings
-
-The following settings can be adjusted:
-
-### Pressure Sensitivity
-Adjust how the pen responds to pressure.
-
-### Latency Settings
-Choose between standard, low, and ultra-low latency modes. Lower latency provides more responsive drawing but may impact battery life.
-
-#### Touch Prediction Settings
-Configure touch prediction latency and sample time. Lower values (2 or less) improve touch responsiveness but may use more battery. Requires administrator rights.
-
-### Double-Tap Settings
-Customize the width, height, and time thresholds for double-tap detection.
-
-### Pen Visualization
-- Hide pen cursor: Allows hiding the pen cursor for a cleaner drawing experience
-
-### Pen Behavior
-- Ignore touch input when using pen: Provides better palm rejection
-- Enable eraser: Toggle eraser functionality
-- Enable flick gestures: Enable/disable flick gestures for navigation
-- Enable hold gesture: Enable/disable hold gesture for context menus
-- Enable right click zone: Toggle the right-click zone feature
-- Right-click zone dimensions: Customize width and height percentages
-
-### Advanced Pen Settings
-- Double tap distance and time
-- Flick tolerance
-- Hold time
-- Splash threshold
-- Tap time
 
 ## Building from Source
 
-1. Clone this repository
+1. Clone the repository
+   ```
+   git clone https://github.com/yourusername/windows-pen-settings-manager.git
+   ```
+
 2. Open the solution in Visual Studio 2022 or later
+
 3. Build the solution
-4. Run the application with administrator privileges
+   ```
+   dotnet build
+   ```
+
+4. Run the application
+   ```
+   dotnet run
+   ```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This software is released under the MIT License. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Special thanks to all contributors
+- Inspired by the need for better pen settings management in Windows 

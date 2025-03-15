@@ -1,12 +1,25 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
+using System.Windows.Interop;
+using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace PenSettingsManager
 {
     public partial class MainWindow : Window
     {
         private readonly PenSettings _settings;
+
+        // P/Invoke constants and methods for setting the application icon
+        private const int ICON_SMALL = 0;
+        private const int ICON_BIG = 1;
+        private const int WM_SETICON = 0x0080;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, IntPtr lParam);
 
         public MainWindow()
         {
@@ -18,6 +31,38 @@ namespace PenSettingsManager
 
             // Load settings from registry
             LoadSettings();
+            
+            // Set application icon in taskbar
+            Loaded += MainWindow_Loaded;
+        }
+        
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "pen.png");
+                if (File.Exists(iconPath))
+                {
+                    // Create bitmap from PNG (this is for the taskbar icon)
+                    using (var bitmap = new Bitmap(iconPath))
+                    {
+                        // Set the Taskbar icon
+                        var helper = new WindowInteropHelper(this);
+                        IntPtr hWnd = helper.Handle;
+                        
+                        // Create icon from bitmap
+                        IntPtr hIcon = bitmap.GetHicon();
+                        
+                        // Set icon for the window
+                        SendMessage(hWnd, WM_SETICON, ICON_SMALL, hIcon);
+                        SendMessage(hWnd, WM_SETICON, ICON_BIG, hIcon);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to set taskbar icon: {ex.Message}", "Icon Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void LoadSettings()

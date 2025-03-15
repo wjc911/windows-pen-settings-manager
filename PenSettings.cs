@@ -216,7 +216,8 @@ namespace PenSettingsManager
                 {
                     _holdMode = value;
                     OnPropertyChanged();
-                    SaveSysEventParameter("HoldMode", value ? 1 : 0);
+                    // HoldMode=1 enables press and hold, HoldMode=3 disables it
+                    SaveSysEventParameter("HoldMode", value ? 1 : 3);
                 }
             }
         }
@@ -371,6 +372,12 @@ namespace PenSettingsManager
                     SaveTouchPadSetting("RightClickZoneHeight", value);
                 }
             }
+        }
+
+        // Constructor
+        public PenSettings()
+        {
+            LoadSettings();
         }
 
         // Load settings from registry
