@@ -34,7 +34,7 @@ The application provides access to the following registry keys:
 
 ## Installation
 
-1. Download the latest release from the [Releases](https://github.com/yourusername/windows-pen-settings-manager/releases) page
+1. Download the latest release from the [Releases](https://github.com/wjc911/windows-pen-settings-manager/releases) page
 2. Extract the ZIP file to any location
 3. Run `PenSettingsManager.exe` as administrator
 
@@ -42,7 +42,7 @@ The application provides access to the following registry keys:
 
 1. Clone the repository
    ```
-   git clone https://github.com/yourusername/windows-pen-settings-manager.git
+   git clone https://github.com/wjc911/windows-pen-settings-manager.git
    ```
 
 2. Open the solution in Visual Studio 2022 or later
