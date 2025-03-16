@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <!-- Disable assembly attribute generation which can cause duplicate attributes -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    
+    <!-- Additional build settings -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+    
+    <!-- Suppress Windows-specific API warnings since this is a Windows-only app -->
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
+  </PropertyGroup>
+</Project> 

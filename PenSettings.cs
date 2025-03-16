@@ -2,9 +2,11 @@ using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 
 namespace PenSettingsManager
 {
+    [SupportedOSPlatform("windows")]
     public class PenSettings : INotifyPropertyChanged
     {
         private int _pressureSensitivity;

@@ -5,13 +5,16 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
+using System.Runtime.Versioning;
 
+[SupportedOSPlatform("windows")]
 class Program
 {
     // P/Invoke for icon handle cleanup
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
     static extern bool DestroyIcon(IntPtr hIcon);
     
+    /* Main method commented out to avoid multiple entry points during build
     static void Main(string[] args)
     {
         Console.WriteLine("Pen Settings Manager Icon Creator");
@@ -28,16 +31,10 @@ class Program
             Console.WriteLine($"Source PNG: {pngPath}");
             Console.WriteLine($"Target ICO: {icoPath}");
             
-            if (!File.Exists(pngPath))
-            {
-                Console.WriteLine("ERROR: Source PNG file not found!");
-                return;
-            }
-            
-            // Create Assets directory if it doesn't exist
+            // Create output directory if it doesn't exist
             Directory.CreateDirectory(Path.GetDirectoryName(icoPath));
             
-            // Create multi-resolution icon
+            // Create the ico file
             CreateMultiResolutionIcon(pngPath, icoPath);
             
             Console.WriteLine("Icon created successfully!");
@@ -45,9 +42,10 @@ class Program
         catch (Exception ex)
         {
             Console.WriteLine($"Error: {ex.Message}");
-            Console.WriteLine($"Stack trace: {ex.StackTrace}");
+            Console.WriteLine(ex.StackTrace);
         }
     }
+    */
     
     static void CreateMultiResolutionIcon(string pngPath, string icoPath)
     {

@@ -1,9 +1,11 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Versioning;
 
 namespace PenSettingsManager
 {
+    [SupportedOSPlatform("windows")]
     public static class RegistryHelper
     {
         // Main registry path for Windows pen settings

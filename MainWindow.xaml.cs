@@ -6,9 +6,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Interop;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 namespace PenSettingsManager
 {
+    [SupportedOSPlatform("windows")]
     public partial class MainWindow : Window
     {
         private readonly PenSettings _settings;

@@ -13,6 +13,21 @@
     <Version>1.0.0</Version>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Assets\pen.ico</ApplicationIcon>
+    
+    <!-- Build settings -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    
+    <!-- Optimization settings -->
+    <DebugType>embedded</DebugType>
+    <PublishTrimmed>false</PublishTrimmed>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    
+    <!-- Platform support - suppress CA1416 warnings -->
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatform>windows</SupportedOSPlatform>
   </PropertyGroup>
 
   <ItemGroup>
