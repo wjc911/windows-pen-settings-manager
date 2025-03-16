@@ -55,7 +55,7 @@ foreach ($platform in $platforms.Keys) {
 # 5. Create version info file
 $versionInfo = @"
 Windows Pen Settings Manager
-Version: 1.0.0
+Version: 0.0.1
 Build Date: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 Platforms: x86, x64, ARM64
 Framework-Dependent: Requires .NET 8.0 Runtime

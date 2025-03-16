@@ -10,7 +10,7 @@
     <Copyright>Copyright © 2025</Copyright>
     <Description>A tool for managing Windows pen settings through the registry</Description>
     <Company>Windows Pen Settings Manager Contributors</Company>
-    <Version>1.0.0</Version>
+    <Version>0.0.1</Version>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Assets\pen.ico</ApplicationIcon>
     
