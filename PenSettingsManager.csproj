@@ -16,14 +16,12 @@
     
     <!-- Build settings -->
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
-    <SelfContained>true</SelfContained>
+    <SelfContained>false</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     
     <!-- Optimization settings -->
     <DebugType>embedded</DebugType>
-    <PublishTrimmed>false</PublishTrimmed>
-    <PublishReadyToRun>true</PublishReadyToRun>
+    <PublishReadyToRun>false</PublishReadyToRun>
     
     <!-- Platform support - suppress CA1416 warnings -->
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>

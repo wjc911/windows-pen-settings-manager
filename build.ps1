@@ -32,9 +32,8 @@ foreach ($platform in $platforms.Keys) {
         -c Release `
         -r $platform `
         -o $outputPath `
-        --self-contained `
-        -p:PublishSingleFile=true `
-        -p:IncludeNativeLibrariesForSelfExtract=true
+        --self-contained false `
+        -p:PublishSingleFile=true
     
     # Check if build was successful
     if ($LASTEXITCODE -eq 0) {
@@ -59,6 +58,7 @@ Windows Pen Settings Manager
 Version: 1.0.0
 Build Date: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 Platforms: x86, x64, ARM64
+Framework-Dependent: Requires .NET 8.0 Runtime
 "@
 
 Set-Content -Path "NewBuild\version.txt" -Value $versionInfo
@@ -69,4 +69,5 @@ Write-Host "Files are located in the NewBuild directory:" -ForegroundColor Cyan
 Write-Host "- x86 build: NewBuild\x86" -ForegroundColor White
 Write-Host "- x64 build: NewBuild\x64" -ForegroundColor White
 Write-Host "- ARM64 build: NewBuild\arm64" -ForegroundColor White
-Write-Host "- Zip files: NewBuild\PenSettingsManager-x86.zip, etc." -ForegroundColor White 
+Write-Host "- Zip files: NewBuild\PenSettingsManager-x86.zip, etc." -ForegroundColor White
+Write-Host "Note: These builds require .NET 8.0 Runtime to be installed on the target machine." -ForegroundColor Yellow 
